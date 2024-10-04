@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "dfffa023-ab8c-4f66-88fd-e65041a67287",
+		"name": "node_Backend_ekart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34941863"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"q\",\n    \"password\": \"q\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"q\",\n    \"password\": \"q\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "addProducts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5fZG9lIiwiaWF0IjoxNzE4MzQxNjcyLCJleHAiOjE3MTgzNDUyNzJ9.StSKIXtE0hoWjc7DQa9DkF7FAGCPegilJC7_TCSBKTw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"pen11111\",\n    \"price\": 50,\n    \"stock\": 10,\n    \"quantity\": 0,\n    \"isDecrDisabled\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buyProduct",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "addManyProducts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"products\": [\n    { \"name\": \"pen\", \"price\": 10, \"stock\": 100, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"book\", \"price\": 15, \"stock\": 200, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"pencil\", \"price\": 4, \"stock\": 500, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"iphone\", \"price\": 30000, \"stock\": 20, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"ipad\", \"price\": 40000, \"stock\": 10, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"bag\", \"price\": 1200, \"stock\": 100, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"bottle\", \"price\": 50, \"stock\": 70, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"mouse\", \"price\": 180, \"stock\": 100, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"keyboard\", \"price\": 500, \"stock\": 100, \"quantity\": 0, \"isDecrDisabled\": true },\n    { \"name\": \"earphones\", \"price\": 700 , \"stock\": 100, \"quantity\": 0, \"isDecrDisabled\": true }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/addMany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"addMany"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "viewCart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImEiLCJpYXQiOjE3MTg4OTM3NDEsImV4cCI6MTcxODg5NzM0MX0.pO99oRsBbEURl7QbgwuKrLFtlIePQoWueT57VddVaNk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addToCart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InEiLCJpYXQiOjE3MTg4OTI2MTcsImV4cCI6MTcxODg5NjIxN30.5bOQDtFGeFsw-TdklSFQXPd6uhL_O-sJKdkKryDCTZs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"quantity\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/cart/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buyCart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5fZG9lIiwiaWF0IjoxNzE4MzQyMjU1LCJleHAiOjE3MTgzNDU4NTV9.Bzu35R3j3267AfR-EguRA5Ren8V0ld78O0ONiQDMQ24",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/buy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removeFromCart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InEiLCJpYXQiOjE3MTg4OTI2MTcsImV4cCI6MTcxODg5NjIxN30.5bOQDtFGeFsw-TdklSFQXPd6uhL_O-sJKdkKryDCTZs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/cart/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cart",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

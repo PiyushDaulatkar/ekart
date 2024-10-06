@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,12 @@ export class AppComponent {
 
   userName!: string;
 
+  constructor(private store: Store<{ userName: { userName: string } }>) {}
+
   ngOnInit(): void {
+    this.store.select('userName').subscribe((data) => {
+      this.userName = data.userName;
+    });
   }
 
   logout() {

@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title style="text-align: center">404 Page Not Found</mat-card-title>
+  <mat-card-content>
+    <br />
+    <div class="horizontal-center">
+      <button
+        mat-flat-button
+        color="accent"
+        type="submit"
+        (click)="navigateTOLogin()"
+      >
+        <mat-icon>login</mat-icon>Login
+      </button>
+    </div>
+    <br />
+    <div class="horizontal-center">
+      <p>--------------------or--------------------</p>
+    </div>
+
+    <div class="horizontal-center">
+      <p>click here to&nbsp;</p>
+      <a routerLink="/register">register</a>
+    </div>
+  </mat-card-content>
+</mat-card>

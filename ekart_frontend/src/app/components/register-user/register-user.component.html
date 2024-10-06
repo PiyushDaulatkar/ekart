@@ -1,0 +1,48 @@
+<div class="containerDiv">
+<mat-card style="width: 500px;">
+    <mat-card-title style="text-align: center; margin-bottom: 10px;">User Registration</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="userRegisterForm" (ngSubmit)="proceedRegistration(userRegisterForm)">
+        <mat-form-field class="example-full-width">
+            <mat-label>First name</mat-label>
+            <input matInput placeholder="Enter first name" formControlName="firstName">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Last name</mat-label>
+            <input matInput placeholder="Enter first name" formControlName="lastName">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Enter username" formControlName="username">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Enter password" formControlName="password">
+          </mat-form-field>
+
+          <div class="horizontal-center">
+            <button mat-flat-button type="submit" style="background-color:#b53f51;"><mat-icon>how_to_reg</mat-icon>Register</button>
+              </div>
+    </form>
+
+    <br/>
+       <div class="horizontal-center">
+                    <p>--------------------or--------------------</p>
+       </div>
+    
+                <div class="horizontal-center">
+                  <p>already a user !! click here to login</p>
+                </div>
+                  <div class="horizontal-center">
+                    <button mat-flat-button color="primary" type="button" routerLink="/login"><mat-icon>login</mat-icon>Login</button>
+                      </div>
+          
+
+  </mat-card-content>
+</mat-card>
+
+
+</div>

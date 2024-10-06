@@ -1,0 +1,32 @@
+<div style="background-color: white;">
+<mat-card>
+    <mat-card-title style="text-align: center;">User Login</mat-card-title>
+    <mat-card-content>
+        <form class="example-form" #loginform="ngForm" (submit)="proceedLogin(loginform)">
+            <mat-form-field class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="Enter Username" name="username" ngModel required>
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="Enter Password" type="password" name="password" ngModel required>
+            </mat-form-field>
+            <div class="horizontal-center">
+              <button mat-flat-button color="primary" type="submit"><mat-icon>login</mat-icon>Login</button>
+                </div>
+          </form>
+          <br/>
+                <div class="horizontal-center">
+                    <p>--------------------or--------------------</p>
+                </div>
+    
+                <div class="horizontal-center">
+                  <div style="padding-top: 8px; padding-right: 10px;">
+                   <p>click here to</p>
+                  </div>
+                  <button mat-flat-button type="button" routerLink="/register" style="background-color:#b53f51;"><mat-icon>how_to_reg</mat-icon>Register</button>
+            </div>
+    </mat-card-content>
+  </mat-card>
+</div>

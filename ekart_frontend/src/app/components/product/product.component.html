@@ -1,0 +1,83 @@
+<ng-container *ngIf="token == ''; else cartContainer">
+  <app-page-not-found></app-page-not-found>
+</ng-container>
+<ng-template #cartContainer>
+  <div class="search-product">
+    <input
+      placeholder="Ex. Mens wear"
+      class="search-product-input"
+      [(ngModel)]="searchText"
+      (input)="searchProducts()"
+    />
+  </div>
+  <div class="search-display">
+    @if ( searchText ) {
+    <p><strong>Search result for: </strong>{{ searchText }}</p>
+    }
+  </div>
+  <div class="container responsive-grid">
+    @for(product of products; track product.id) {
+    <mat-card class="container">
+      <mat-card-title style="text-align: center">{{
+        product.name
+      }}</mat-card-title>
+      <mat-card-content class="product">
+        <img
+          src="../../../assets/{{ product.name }}.png"
+          alt="{{ product.name }} img"
+        />
+        <br />
+        <div class="horizontal-center">
+          <p>price : {{ product.price | currency : "INR" }}</p>
+        </div>
+        <div class="horizontal-center">
+          <p>In stock : {{ product.stock }}</p>
+        </div>
+        <div class="horizontal-center">
+          <p style="padding-top: 2px">
+            Quantity : {{ product.quantity }} &nbsp;
+          </p>
+          <button
+            mat-raised-button
+            class="my-class"
+            type="button"
+            (click)="increaseQuantity(product.id)"
+            [disabled]="product.isIncrDisabled"
+            style="margin-right: 10px"
+          >
+            +
+          </button>
+          <button
+            mat-raised-button
+            class="my-class"
+            type="button"
+            (click)="decreaseQuantity(product.id)"
+            [disabled]="product.isDecrDisabled"
+          >
+            -
+          </button>
+        </div>
+        <div class="horizontal-center">
+          <button
+            mat-flat-button
+            type="button"
+            style="margin-right: 10px"
+            (click)="addToCart(product.id, product.quantity)"
+            color="accent"
+          >
+            <mat-icon>shopping_cart</mat-icon>Add to cart
+          </button>
+          <button
+            mat-flat-button
+            type="button"
+            (click)="buyProduct(product.id, product.quantity)"
+            style="background-color: #ffff77"
+          >
+            <mat-icon>shopping_bag</mat-icon>Buy
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    }
+  </div>
+</ng-template>

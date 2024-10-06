@@ -1,0 +1,50 @@
+.container {
+    padding: 24px;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    }
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax( 250px, 1fr));
+    gap: 24px;
+}
+
+.my-class{
+    width: 20px!important;
+    height: 24px;
+    min-width: unset!important;
+    background-color: #009688;
+}
+
+.top-heading {
+    padding-top: 12px;
+    text-align: center;
+    font-style: italic;
+    font-size: x-large;
+
+}
+
+.bill {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }

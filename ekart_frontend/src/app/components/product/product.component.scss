@@ -1,0 +1,65 @@
+.container {
+    padding: 24px;
+}
+
+img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax( 250px, 1fr));
+    gap: 24px;
+}
+
+.my-class{
+    width: 20px!important;
+    height: 24px;
+    min-width: unset!important;
+    background-color: #009688;
+}
+
+.search-product {
+   text-align: center;
+   padding-top: 5px;
+}
+
+.search-product-input {
+    width: 40% !important;
+    height: 5.9vh !important;
+    padding: 1px 10px;
+    outline: none;
+    border-radius: 2px;
+    background-color: #efefef;
+    border: #28282B 1px solid;
+}
+
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    margin-left: 0.2px !important;
+}
+
+.btn-search {
+    padding: 13px 30px;
+    background-color: #28282B;
+    margin-left: 0px;
+    color: #fff;
+}
+
+.btn-search-disabled {
+    padding: 12px 30px;
+    background-color: #aaa;
+    margin-left:  -1px;
+    color: #999;
+    border: #aaa 1px solid;
+    cursor: not-allowed;
+}
+
+.search-display {
+    padding-left: 325px;
+    padding-top: 20px;
+}

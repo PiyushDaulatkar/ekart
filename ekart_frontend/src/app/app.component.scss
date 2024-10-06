@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+#menuTitle {
+    font-size: xx-large;
+    color: #d5efff;
+    margin-left: 5px;
+    margin-right: 25px;
+    font-family: "Concert One", cursive;
+    font-weight: bold;
+    font-style: normal;
+    padding-bottom: 16px;
+}
+
+.mat-sidenav {
+    background-color: #3F51B5;
+    width: 170px;
+}
+
+.side-nav-item {
+    display: flexbox;
+    flex-direction: column;
+}
+
+.side-menu-item {
+    color: white !important;
+    margin-top: 15px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+  .top-header {
+    background-color: #7f2c3f;
+    color: white;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+  }
+
+  mat-sidenav-content {
+    background-color: white;
+    overflow-y: auto;
+  }
+
+  mat-toolbar {
+    background-color: #3F51B5;
+    color: white;
+  }
+
+  a {
+    color: white !important;
+  }

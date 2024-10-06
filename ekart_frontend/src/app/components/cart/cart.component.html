@@ -1,0 +1,179 @@
+<!-- <div>
+<div class="top-heading">
+  My cart
+</div>
+
+
+  @if (cart.length === 0) {
+    <div class="top-heading">
+    <h2> Cart is empty, please add products </h2>
+  </div>
+  } 
+
+  @else {
+
+<div class="container responsive-grid">
+  
+    @for(product of cart; track product.id) {
+    <mat-card>
+      <mat-card-title style="text-align: center;">{{ product.name }}</mat-card-title>
+      <mat-card-content>
+        <img src="../../../assets/{{product.name}}.png" alt="{{ product.name }} img"/>
+            <br/>
+                  <div class="horizontal-center">
+                      <p>price : {{ product.price | currency:'INR' }}</p>
+                    </div>
+                  <div class="horizontal-center">    
+                      <p>In stock : {{ product.stock }}</p>
+                  </div>
+                  <div class="horizontal-center">    
+                    <p style="padding-top: 2px;">Quantity : {{ product.quantity }} &nbsp;</p>
+                    <button  mat-raised-button class="my-class"  type="button" (click)="increaseQuantity(product.id)" [disabled]="product.isIncrDisabled" style="margin-right: 10px;">+</button>
+                    <button  mat-raised-button class="my-class"  type="button" (click)="decreaseQuantity(product.id)" [disabled]="product.isDecrDisabled">-</button>
+                </div>
+                  <div class="horizontal-center">
+                    <button mat-flat-button color="accent" type="button" style="margin-right: 10px;" (click)="removeFromCart(product.id)"><mat-icon>remove</mat-icon>Remove</button>
+              </div>
+      </mat-card-content>
+    </mat-card>
+    }
+
+  </div>
+  <div class="bill">
+    
+      <table>
+        <tr>
+          <th>Product name</th>
+          <th>Quantity</th>
+          <th>Unit price</th>
+          <th>Price</th>
+        </tr>
+        @for (product of cart; track product.id) {
+          <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.price | currency: 'INR'}}</td>
+            <td>{{ product.price * product.quantity | currency: 'INR'}}</td>
+          </tr>
+        }
+        <tr>
+          <td style="border: none;"></td>
+          <td style="border: none;"></td>
+          <td style="border: none; font-weight: bold; text-align: end;">Total : </td>
+          <td style="border: none; font-weight: bold;">{{ total | currency: 'INR'}}</td>
+        </tr>
+      </table>
+    <button  mat-raised-button color="accent" type="button" (click)="checkout()">checkout</button>
+  </div>
+  }
+</div> -->
+
+<div>
+  <ng-container *ngIf="token == ''; else cartContainer">
+    <app-page-not-found></app-page-not-found>
+  </ng-container>
+  <ng-template #cartContainer>
+    <div class="top-heading">My cart</div>
+    <ng-container *ngIf="cart.length != 0; else emptyCart">
+      <div class="container responsive-grid">
+        <ng-container *ngFor="let product of cart">
+          <mat-card>
+            <mat-card-title style="text-align: center">{{
+              product.name
+            }}</mat-card-title>
+            <mat-card-content>
+              <img
+                src="../../../assets/{{ product.name }}.png"
+                alt="{{ product.name }} img"
+              />
+              <br />
+              <div class="horizontal-center">
+                <p>price : {{ product.price | currency : "INR" }}</p>
+              </div>
+              <div class="horizontal-center">
+                <p>In stock : {{ product.stock }}</p>
+              </div>
+              <div class="horizontal-center">
+                <p style="padding-top: 2px">
+                  Quantity : {{ product.quantity }} &nbsp;
+                </p>
+                <button
+                  mat-raised-button
+                  class="my-class"
+                  type="button"
+                  (click)="increaseQuantity(product.id)"
+                  [disabled]="product.isIncrDisabled"
+                  style="margin-right: 10px"
+                >
+                  +
+                </button>
+                <button
+                  mat-raised-button
+                  class="my-class"
+                  type="button"
+                  (click)="decreaseQuantity(product.id)"
+                  [disabled]="product.isDecrDisabled"
+                >
+                  -
+                </button>
+              </div>
+              <div class="horizontal-center">
+                <button
+                  mat-flat-button
+                  color="accent"
+                  type="button"
+                  style="margin-right: 10px"
+                  (click)="removeFromCart(product.id)"
+                >
+                  <mat-icon>remove</mat-icon>Remove
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+      </div>
+      <div class="bill">
+        <table>
+          <tr>
+            <th>Product name</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+            <th>Price</th>
+          </tr>
+          @for (product of cart; track product.id) {
+          <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.price | currency : "INR" }}</td>
+            <td>{{ product.price * product.quantity | currency : "INR" }}</td>
+          </tr>
+          }
+          <tr>
+            <td style="border: none"></td>
+            <td style="border: none"></td>
+            <td style="border: none; font-weight: bold; text-align: end">
+              Total :
+            </td>
+            <td style="border: none; font-weight: bold">
+              {{ total | currency : "INR" }}
+            </td>
+          </tr>
+        </table>
+        <button
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="checkout()"
+        >
+          checkout
+        </button>
+      </div>
+    </ng-container>
+  </ng-template>
+</div>
+
+<ng-template class="top-heading" #emptyCart>
+  <div class="top-heading">
+    <h2>Cart is empty, please add products</h2>
+  </div>
+</ng-template>

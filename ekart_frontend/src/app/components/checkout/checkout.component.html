@@ -1,0 +1,70 @@
+<ng-container *ngIf="token == ''; else cartContainer">
+  <app-page-not-found></app-page-not-found>
+</ng-container>
+<ng-template #cartContainer>
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Address Details</ng-template>
+        <mat-form-field class="example-full-width">
+          <mat-label>Address</mat-label>
+          <textarea
+            matInput
+            placeholder="Ex. House no. 18 , XYZ apartment, City"
+            formControlName="firstCtrl"
+            required
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Pincode</mat-label>
+          <input
+            matInput
+            placeholder="Ex. House no. 18 , XYZ apartment, Cit445544"
+            formControlName="firstCtrl"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>State</mat-label>
+          <input
+            matInput
+            placeholder="Enter state"
+            formControlName="firstCtrl"
+            required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperNext>Proceed</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Select payment method">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-select>
+            @for ( payment of paymentMethods; track payment) {
+            <mat-option value="{{ payment.method }}">{{
+              payment.method
+            }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-stroked-button matStepperPrevious>Back</button>
+          <button mat-stroked-button matStepperNext>Proceed</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-stroked-button matStepperPrevious>Back</button>
+        <button mat-stroked-button (click)="stepper.reset()">Reset</button>
+        <button mat-raised-button color="accent" (click)="placeOrder()">
+          Place Order
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</ng-template>
